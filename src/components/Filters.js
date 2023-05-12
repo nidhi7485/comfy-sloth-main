@@ -117,7 +117,37 @@ const Filters = () => {
             </div>
           </div>
           {/* end of color */}
+          {/* price */}
+          <div className='form-control'>
+            <h5>price</h5>
+            <p className='price'>{formatPrice(price)}</p>
+            <input
+              type='range'
+              name='price'
+              onChange={updateFilters}
+              min='min_price'
+              max_price='max_price'
+              value={price}
+            />
+          </div>
+          {/* end of price */}
+          {/* shopping */}
+          <div className='form-control shipping'>
+            <label htmlFor='shipping'>free shipping</label>
+            <input
+              type='checkbox'
+              name='shipping'
+              id='shipping'
+              onChange={updateFilters}
+              checked={shipping}
+            />
+          </div>
+          {/* end of shopping */}
         </form>
+        <button type='button' className='clear-btn' onClick={clearFilters}>
+          {' '}
+          clear filters
+        </button>
       </div>
     </Wrapper>
   )
@@ -131,7 +161,7 @@ const Wrapper = styled.section`
     }
   }
   .search-input {
-    padding: 0.5rem;
+    padding: 0.25rem;
     background: var(--clr-grey-10);
     border-radius: var(--radius);
     border-color: transparent;
